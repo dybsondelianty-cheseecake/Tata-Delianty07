@@ -30,6 +30,9 @@ class LinkedListPerpustakaanLengkap:
 
     # --- FITUR MANAJEMEN KOLEKSI ---
     def tambah_buku(self, id_buku, judul, pengarang):
+        if not id_buku.strip() or not judul.strip() or not pengarang.strip():
+            return "Gagal: ID Buku, Judul Buku, dan Nama Pengarang wajib diisi!"
+    
         curr = self.head_buku
         while curr:
             if curr.id_buku == id_buku:
@@ -37,6 +40,7 @@ class LinkedListPerpustakaanLengkap:
             curr = curr.next
 
         buku_baru = NodeBuku(id_buku, judul, pengarang)
+
         if self.head_buku is None:
             self.head_buku = buku_baru
         else:
@@ -236,15 +240,18 @@ if pilihan == "1. Manajemen Koleksi Buku":
         pengarang = st.text_input("Nama Pengarang")
         
         if st.button("Simpan Buku"):
-            pesan = perpus.tambah_buku(id_buku, judul, pengarang)
-            if "Sukses" in pesan:
-                st.success(pesan)
+            if not id_buku.strip() or not judul.strip() or not pengarang.strip():
+                st.error("Gagal: ID Buku, Judul Buku, dan Nama Pengarang wajib diisi!")
             else:
+                pesan = perpus.tambah_buku(id_buku, judul, pengarang)
+
+            if "Gagal" in pesan:
                 st.error(pesan)
+            else:
+                st.success(pesan)
         else:
             st.warning("Semua field input data buku wajib diisi!")
 
-            
                 
     elif sub_menu == "Lihat Rak Buku":
         data_buku = perpus.tampilkan_buku()
