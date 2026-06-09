@@ -237,10 +237,10 @@ if pilihan == "1. Manajemen Koleksi Buku":
         
         if st.button("Simpan Buku"):
             pesan = perpus.tambah_buku(id_buku, judul, pengarang)
-            if "Gagal" in pesan:
-                st.error(pesan)
-            else:
+            if "Sukses" in pesan:
                 st.success(pesan)
+            else:
+                st.error(pesan)
         else:
             st.warning("Semua field input data buku wajib diisi!")
 
