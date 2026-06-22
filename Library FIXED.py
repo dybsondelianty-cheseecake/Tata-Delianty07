@@ -410,4 +410,4 @@ elif pilihan == "4. Laporan & Statistik":
 # MENU 5: KELUAR
 # ==========================
 elif pilihan == "5. Keluar":
-    st.info("Sistem dinonaktifkan. Terima kasih telah menggunakan layanan perpustakaan digital.")
+    st.info("Sistem dinonaktifkan. Terima kasih telah menggunakan Sistem layanan perpustakaan digital.")
