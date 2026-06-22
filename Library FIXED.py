@@ -227,7 +227,6 @@ menu = [
     "2. Manajemen Anggota",
     "3. Transaksi Sirkulasi (Pinjam/Kembali)",
     "4. Laporan & Statistik",
-    "5. Keluar"
 ]
 
 pilihan = st.selectbox("Pilih Menu Utama", menu)
@@ -405,9 +404,3 @@ elif pilihan == "4. Laporan & Statistik":
         st.info("Semua koleksi buku aman di dalam rak.")
     else:
         st.table(buku_out)
-
-# ==========================
-# MENU 5: KELUAR
-# ==========================
-elif pilihan == "5. Keluar":
-    st.info("Sistem dinonaktifkan. Terima kasih telah menggunakan Sistem layanan perpustakaan digital.")
