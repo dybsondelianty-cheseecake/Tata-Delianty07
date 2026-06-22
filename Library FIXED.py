@@ -140,6 +140,10 @@ class LinkedListPerpustakaanLengkap:
 
     # --- FITUR SIRKULASI (PINJAM & KEMBALI + DENDA) ---
     def pinjam_buku(self, id_buku, id_anggota, tgl_kembali_target):
+        
+        if (tgl_kembali_target - date.today()).days > 7:
+            return "Gagal: Batas peminjaman maksimal 7 hari."
+        
         anggota = self.head_anggota
         found_anggota = False
         while anggota:
@@ -356,7 +360,9 @@ elif pilihan == "3. Transaksi Sirkulasi (Pinjam/Kembali)":
             st.error("Maksimal peminjaman hanya 7 hari!")
             
         if st.button("Proses Pinjam"):
-            if id_b and id_a:
+            if (tgl_kembali - date.today()).days > 7:
+                st.error("Maksimal peminjaman hanya 7 hari!")
+            elif id_b and id_a:
                 pesan = perpus.pinjam_buku(id_b, id_a, tgl_kembali)
                 if "Sukses" in pesan:
                     st.success(pesan)
