@@ -1,6 +1,11 @@
 import streamlit as st
 from datetime import datetime, date
 
+st.set_page_config(
+    page_title="TYATA BOOKLORA",
+    page_icon="📚"
+)
+
 # ==========================
 # LINKED LIST NODE & CLASS
 # ==========================
